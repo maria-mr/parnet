@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+.custom-button,
+.green-button,
+.blue-button,
+.red-button {
+    display: inline-block;
+    padding: 15px 30px; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px; 
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.custom-button:hover,
+.green-button:hover,
+.blue-button:hover,
+.red-button:hover {
+    background-color: #33FF93; 
+    color: rgb(0, 128, 188) ;
+}
+
+
+        .green-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: 1px solid #008000; 
+            background-color: #008000; 
+            color: #fff; 
+            border-radius: 5px; 
+            cursor: pointer;
+            margin: 5px; 
+        }
+
+        .green-button:hover {
+            background-color: #fff; 
+            color: #008000; 
+        }
+
+        .blue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: 1px solid #0a9cd6; 
+            background-color: #0a9cd6; 
+            color: #fff; 
+            border-radius: 5px; 
+            cursor: pointer;
+            margin: 5px; 
+        }
+
+        .blue-button:hover {
+            background-color: #33a7ff; 
+            color: #33b1ff; 
+        }
+
+        .red-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: 1px solid #d60a0a; 
+            background-color: #d60a0a; 
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px; 
+        }
+
+        .red-button:hover {
+            background-color: #fff; 
+            color: #d60a0a; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div style="text-align: center;">
+            <form method="post" action="{{ url_for('productos_privado') }}">
+                <label for="termino_busqueda" style="font-size: 30px;">Buscar Productos:</label>
+                <input type="text" name="termino_busqueda" id="termino_busqueda" placeholder="Nombre del producto" style="font-size: 30px; width: 300px;">
+                <input type="submit" value="Buscar" class="custom-button">
+                <button id="mostrarTodoBtn" class="custom-button">Mostrar Todo</button>
+            </form>
+            <a href="{{ url_for('agregar_producto') }}" class="custom-button green-button">Agregar Nuevo Producto</a>
+            <a href="{{ url_for('dashboard') }}" class="custom-button blue-button">Ver Dashboard</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Estatus</th>
+                    <th>Tipo de Producto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id_producto }}</td>
+                    <td>{{ producto.nombre_producto }}</td>
+                    <td>{{ producto.descripcion_producto }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td><img src="{{ producto.imagen_path }}" alt="Imagen" style="max-width: 80px; max-height: 80px;"></td>
+                    <td>{{ producto.estatus }}</td>
+                    <td>{{ producto.tipoProducto }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_producto', id_producto=producto.id_producto) }}" class="custom-button blue-button">Editar</a>
+                        <form method="post" action="{{ url_for('eliminar_producto', id_producto=producto.id_producto) }}" style="display: inline;">
+                            <input type="submit" value="Eliminar" class="custom-button red-button" onclick="return confirm('¿Estás seguro de que quieres eliminar este producto?')">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}">Servicios</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+</body>
+</html>

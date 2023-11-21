@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Sugerencias</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <h1>Sugerencias Registradas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for sugerencia in sugerencias %}
+                    <tr>
+                        <td>{{ sugerencia.id_sugerencia }}</td>
+                        <td>{{ sugerencia.mensaje }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            <form action="{{ url_for('exportar_pdf') }}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-info">Exportar a PDF</button>
+            </form>
+            <form action="{{ url_for('exportar_excel') }}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-info">Exportar a Excel</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #000;  
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #000; 
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            color: #000;  
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-info {
+            background-color: #007ad1; 
+            border-color: #007ad1; 
+        }
+
+        .btn-info:hover {
+            background-color: #00BFFF; 
+            border-color: #00BFFF; 
+        }
+    </style>
+</body>
+
+</html>

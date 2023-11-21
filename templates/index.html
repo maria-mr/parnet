@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+   
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+       
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+       
+    </header>
+    <div class="main-container">
+        <div class="sidebar">
+            <section>
+                <h4>NOTICIAS</h4>
+                <div class="text-slider">
+                    <div class="text-slide">Parnet Adopta Tecnología de Última Generación</div>
+                    <div class="text-slide">Certificación ISO 9000: Parnet Garantiza Calidad</div>
+                    <div class="text-slide">Parnet Innovador en Telecomunicaciones</div>
+                    <div class="text-slide">Parnet Colabora en Proyectos de Voz y Datos</div>
+ 
+                </div>
+                <br>
+                <br>
+            </section>
+            <a href="{{ url_for('login') }}" class="link-light text-white link-control-panel" style="background-color: rgba(119, 119, 247, 0.5);">Control Panel PARNET</a>
+            <br>
+            <section class="menu-section">
+                <h5>Areas PARNET</h5>
+                <ul class="menu-list">
+                    <li><a href="{{ url_for('certificaciones') }}">Certificaciones</a></li>
+                    <li><a href="{{ url_for('Telecomunicaciones') }}">Telecomunicaciones</a></li>
+                    <li><a href="{{ url_for('RedesElec') }}">Redes Eléctricas</a></li>
+                    <li><a href="{{ url_for('CircuitoCerrado') }}">Circuito Cerrado TV</a></li>
+                    <li><a href="{{ url_for('CorrienteRegulada') }}">Corriente Regulada</a></li>
+                    <li><a href="{{ url_for('DataCenters') }}">Data Centers</a></li>
+                    <li><a href="{{ url_for('FibraOptica') }}">Fibra Óptica</a></li>
+                    <li><a href="{{ url_for('CablesEstructurados') }}">Cables Estructurados</a></li>
+                    <li><a href="{{ url_for('Polizas') }}">Pólizas</a></li>
+                    <li><a href="{{ url_for('Outsourcing') }}">Outsourcing</a></li>
+                    <li><a href="{{ url_for('Administracion') }}">Administración</a></li>
+                </ul>
+            </section>
+ 
+            <section>
+                <br>
+                <br>
+                <h6>Marcas y proveedores</h6>
+           
+                <div class="text-slider">
+                    <div class="text-slide">Parnet Adopta Tecnología de Última Generación</div>
+                    <div class="text-slide">Certificación ISO 9000: Parnet Garantiza Calidad</div>
+                    <div class="text-slide">Parnet Innovador en Telecomunicaciones</div>
+                    <div class="text-slide">Parnet Colabora en Proyectos de Voz y Datos</div>
+ 
+                </div>
+                <br>
+                <br>
+                <div style="margin-bottom: 500px;"></div>
+                <img src="static/img/visitas.png" alt="Conectados" style="width: 20px; height: 20px;"> <i class="fas fa-eye"></i><span style="font-weight: 100; font-family: 'Arial', sans-serif;">Conectados: </span><a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+                    <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=13583">
+                </a><br>
+                <img src="static/img/visitas.png" alt="Icono de vistas" style="width: 20px; height: 20px;"> <i class="fas fa-eye"></i><span style="font-weight: 100; font-family: 'Arial', sans-serif;">Visitas: </span><a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+                    <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=13583">
+                </a><br><br>
+            </section>
+        </div>
+ 
+        <main>
+            <div class="slider">
+                <div><img src="https://www.parnetmx.com/images/detector%20tactil.jpg"></div>
+                <div><img src="https://www.parnetmx.com/images/amplificador.jpg"></div>
+                <div><img src="https://www.parnetmx.com/images/domos%20de%20movimiento.jpg"></div>
+                <div><img src="https://www.parnetmx.com/images/barrera%20vehicular.jpg"></div>
+            </div>
+           
+            <div class="paragraph-with-image">
+                    <img src="http://www.aideabogados.com/wp-content/uploads/2017/05/aide-abogados-camara-de-seguridad-en-el-trabajo-1.jpg" alt="Imagen 1">
+                <div class="text-container">
+                    <h3>Cual es el objetivo principal de PARNET?</h3>
+                    <p>Nuestra empresa tiene como objetivo suministrar Soluciones Integrales en Telecomunicaciones (Voz y datos), clécuicas que necesidades amprosariales
+                    Con productos,
+                    aplicaciones, servicios tecnologa de punta, la cual simplue
+                    el trabajo al usuario final obtenlendo una comunicación eficiente. de alta confiabilidad, incrementando los Indices de productividad y competitividad de su empresa y del personal de la misma.
+                    Las fibras ópticas y los sistemas de comunicaciones, constituyen el desarrollo tecnológico más importante de los últimos años</p>
+                </div>
+            </div>
+                <div class="paragraph-with-image">
+                    <img src="https://agdiscover.com/wp-content/uploads/2019/09/StockSnap_6Z663NNH9K-1024x683.jpg" alt="Imagen 2">
+                    <div class="text-container">
+                        <h3>Hay buena energia dentro de su empresa?</h3>
+                        <p>Normalmente, las personas y los encargados de la Informaltica
+                        enlas empresas ven en los virus a los principales enemigos a combatir en aras de no perder información del negocio.
+                        No obstanto, Segin la empresa de seguridad energetica APC,
+                        el 60 por ciento do los daños do los equipos y la desaparición
+                        de datos en los computadores es ocasionada
+                        por problemas
+                        asociados a la encrgia clectrico,
+                        Picos, sobrevoltales, trasientes, interrupciones, apagones y
+                        distorsiones, entro otros, son alounos de los males mas comunes que sulre la cnergia eléctrica y que
+                        pueden mandar a la basura Lodas las inverslones que usted o su empresa han hecho en computadores,
+                        televisores planos, teatros caseros,etc</p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <h3>Con el afan de brindarles soluciones integrales, Parnet Ingenieria le ofrece desarrollo de software tales como : </h3>
+                    <ul>
+                        <li>Aplicaciones a la medida</li>
+                        <li>Aplicaciones web</li>
+                        <li>Aplicaciones Cliente-Servidgr</li>
+                        <li>Desarrollo de Aplicaciones Multimedia</li>
+                        <li>Software de Homina para el control total de sus empleados</li>
+                        <li>Aplicacones moviles para celulares y PDA's</li>
+                        <li>Bases de Datos</li>
+                    </ul>
+                </div>
+                <div class="video-container text-center">
+                    <iframe width="800" height="500" src="https://www.youtube.com/embed/I2i0HUqmaOQ" frameborder="0" allowfullscreen></iframe>
+                </div>          
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            function closeNavbar() {
+                $('.navbar-toggler').click();
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.slider').slick({
+                    dots: true, 
+                    autoplay: true, 
+                    autoplaySpeed: 5000, 
+                });
+                $('.text-slider').slick({
+                    vertical: true,
+                    autoplay: true,
+                    autoplaySpeed: 8000,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    verticalSwiping: false,
+                    prevArrow: false,
+                    nextArrow: false,
+                });
+            });
+            $('#mostrarTodoBtn').on('click', function() {
+                $('.paragraph-with-image').show();  
+            });
+        </script>      
+    </div>
+ 
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}" class="link-light">Página Principal</a>
+            <a href="{{ url_for('quieness') }}" class="link-light">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}" class="link-light" >Clientes</a>
+            <a href="{{ url_for('servicios') }}" class="link-light">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="link-light">Productos</a>
+            <a href="{{ url_for('sugerencias') }}" class="link-light">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}" class="link-light">Contacto</a>
+            <a href="{{ url_for('socios') }}" class="link-light" >Socios</a>
+        </nav>
+    </footer>
+</body>
+</html>

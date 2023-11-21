@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+        }
+
+        header, footer {
+            background-color: #1b1b81; 
+            color: #fff; 
+            padding: 10px; 
+            text-align: center; 
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none; 
+            color: #fff; 
+            margin: 0 10px; 
+        }
+
+        main {
+            text-align: center; 
+            margin-top: 20px;
+        }
+
+        form {
+            width: 80%; 
+            margin: 0 auto; 
+            background-color: #f5f5f5; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block; 
+            margin-top: 10px; 
+            font-weight: bold; 
+            color: #333; 
+        }
+
+        input,
+        textarea,
+        select {
+            width: calc(100% - 20px);
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+        }
+
+        input[type="submit"] {
+            background-color: #1b1b81; 
+            color: #fff; 
+            cursor: pointer; 
+            font-size: 16px; 
+            padding: 12px 20px; 
+        }
+
+        input[type="submit"]:hover {
+            background-color: #fff; 
+            color: #1b1b81; 
+        }
+
+        .redirect-button {
+            display: inline-block;
+            padding: 10px 15px; 
+            text-decoration: none;
+            font-size: 16px; 
+            background-color: #ffff00;
+            color: #333; 
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .redirect-button:hover {
+            background-color: #333; 
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Editar Producto</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" value="{{ producto.nombre_producto }}" required><br>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" required>{{ producto.descripcion_producto }}</textarea><br>
+
+            <label for="precio">Precio:</label>
+            <input type="text" name="precio" value="{{ producto.precio }}" required><br>
+
+            <label for="imagen">Imagen:</label>
+            <input type="file" name="imagen" accept="image/*"><br>
+
+            <label for="estatus">Estatus:</label>
+            <select name="estatus" required>
+                <option value="Disponible" {% if producto.estatus == 'Disponible' %}selected{% endif %}>Disponible</option>
+                <option value="No Disponible" {% if producto.estatus == 'No Disponible' %}selected{% endif %}>No Disponible</option>
+            </select><br>
+
+            <label for="id_tipo">Tipo de Producto:</label>
+            <select name="id_tipo" id="id_tipo">
+                {% for tipo_producto in tipos_productos %}
+                    <option value="{{ tipo_producto.id_tipo }}" {% if tipo_producto.id_tipo == producto.id_tipo %}selected{% endif %}>{{ tipo_producto.tipoProducto }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Guardar Cambios">
+        </form>
+
+        <a href="{{ url_for('productos_privado') }}" class="redirect-button">Cancelar y volver a la lista de productos</a>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button" onclick="closeNavbar()">Productos</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+</body>
+</html>

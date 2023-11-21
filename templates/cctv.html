@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Exito</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style_casosext.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+       
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+
+    <main>
+        <div class="main-content">
+            <div class="column">
+                <h2>CIRCUITO CERRADO DE TELEVISION</h2>
+                <p>
+                    En la actualidad existe la necesidad de vigilar y proteger tanto bienes materiales como humanos, en la industria y residencias, por lo cual proveemos a nuestros clientes el equipamiento adecuado a cada una de las necesidades, recomendando siempre las mejores marcas, aplicaciones y tecnología de punta.
+                </p>
+                <p>
+                    En esta área también se cuenta con personal certificado para ofrecer al cliente una instalación confiable, segura y garantizada.          
+                 </p>
+                
+            </div>
+            <div class="column">
+                <div id="slider">
+                    <img src="https://ingenieriayeficiencia.com/wp-content/uploads/2017/04/circuito-cerrado-de-television-featured-696x385.jpg" alt="Imagen 1">
+                    <img src="https://www.cosmos.com.mx/fotou/5fe0f2be9aa41551148b4567_color.jpg" alt="Imagen 2">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+            
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+    <style>
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.column {
+    width: 80%; 
+    margin-bottom: 20px; 
+}
+
+.column h2 {
+    font-size: 24px; 
+}
+
+.column p {
+    font-size: 30px; 
+}
+
+#slider {
+    max-width: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+#slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+    </style>
+</body>
+<script>
+    var slideIndex = 0;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementById("slider").getElementsByTagName("img");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); 
+    }
+
+    showSlides(); 
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARNET</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+       
+        <nav  class="nav-buttons">
+            <a href="{{ url_for('index') }}" class="button">Página Principal</a>
+            <a href="{{ url_for('quieness') }}" class="button">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}" class="button">Clientes</a>
+            <a href="{{ url_for('servicios') }}" class="button">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('contacto') }}" class="button">Contacto</a>
+            <a href="{{ url_for('socios') }}" class="button">Socios</a>
+        </nav>
+        
+    </header>
+   
+
+        <main>
+                   
+        </main>
+            
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+       
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+
+    <main>
+       
+        <div class="spacer"></div>
+
+        <div class="center-content">
+        <h2>Contamos con los siguientes tipos de Servicios:</h2>
+        <div class="service-images">
+            <div class="service-item">
+                <a href="{{ url_for('telecomunicaciones') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20telecomunicaciones.png" alt="Telecomunicaciones">
+                    <h3>Telecomunicaciones</h3>
+                </a>
+            </div>
+
+            <div class="service-item">
+                <a href="{{ url_for('cctv') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20cctv.png" alt="CCTV">
+                    <h3>CCTV</h3>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="{{ url_for('controlacceso') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20control%20de%20acceso.png" alt="Control de Acceso">
+                    <h3>Control de Acceso </h3>
+                </a>
+            </div>
+
+            <div class="service-item">
+                <a href="{{ url_for('corrienteregulada') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20corriente%20regulada.png" alt="Corriente regulada">
+                    <h3>Corriente Regulada</h3>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="{{ url_for('saladejuntas') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20sala%20de%20juntas%20(2).png" alt="Sala de Juntas">
+                    <h3>Sala de Juntas </h3>
+                </a>
+            </div>
+
+            <div class="service-item">
+                <a href="{{ url_for('voceo') }}">
+                    <img src="https://www.parnetmx.com/images/servicios%20voceo.png" alt="Voceo">
+                    <h3>Voceo</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <label style="font-size: 28px; font-weight: bolder;">Servicio</label>            <form action="{{ url_for('procesar_servicio') }}" method="POST">
+                <div class="form-group">
+                    <label for="nombre_servicio">Nombre del Cliente:</label>
+                    <input type="text" name="nombre_servicio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea class="textbox" name="descripcion" rows="4" cols="50" required></textarea>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="id_servicio">Tipo de servicio:</label>
+                    <select name="id_servicio" required>
+                        <option value="" disabled selected>Seleccione un tipo de servicio</option>
+                        {% for servicio in catalogo_servicios %}
+                            <option value="{{ servicio.id_servicio }}">{{ servicio.tipoServicio }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="correo" required>
+                </div>
+
+                <div class="form-group" style="display: block; text-align: center;">
+                    <div class="g-recaptcha"  data-sitekey="{{ config['RECAPTCHA_PUBLIC_KEY'] }}"></div>
+                </div>
+ 
+                <div class="form-group">
+                    <button class="custom-button" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</main>
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+    <style>
+        .g-recaptcha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; 
+        }
+    
+        .center-form {
+            text-align: center;
+            margin-top: 50px;
+        }
+    
+        .custom-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px; 
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    
+        .custom-button:hover {
+            background-color: #45a049;
+        }
+    
+        .form-group {
+            margin-bottom: 20px; 
+        }
+    
+     
+        .form-container-left {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto; 
+            margin-top: 50px; 
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+        }
+    
+        .form-group label {
+            flex: 1;
+            text-align: right;
+            margin-right: 10px;
+        }
+    
+        .form-group input,
+        .form-group select {
+            flex: 2;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .form-group button {
+            flex: 2;
+        }
+    
+        h3 {
+            color: white;
+        }
+    
+       
+        body,
+        input,
+        select,
+        button,
+        label {
+            color: black;
+        }
+    
+        .content-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            text-align: center;
+            margin: 50px 20px; 
+        }
+    
+        .service-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 20px;
+        }
+    
+        .service-item {
+            max-width: 300px;
+        }
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 50px 30px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px; 
+        }
+        .textbox {
+    flex: 2;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+        @media only screen and (min-width: 600px) {
+            .content-wrapper {
+                flex-direction: row; 
+            }
+        }
+    </style>
+    
+</body>
+</html>

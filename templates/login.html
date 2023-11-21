@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var alertClass = '{{ "danger" if category == "error" else "success" }}';
+                        var alertMessage = '{{ message }}';
+                       
+                        var alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-' + alertClass + ' alert-dismissible fade show';
+                        alertDiv.innerHTML = alertMessage + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                       
+                        document.body.appendChild(alertDiv);
+                       
+                        setTimeout(function() {
+                            alertDiv.remove();
+                        }, 5000);
+                    });
+                </script>
+            {% endfor %}
+        {% endwith %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00008B;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+ 
+        header {
+            background-size: cover;
+            background-position: top left;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            height: auto;
+        }
+ 
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+ 
+        .logo {
+            width: 200px;
+            height: 150px;
+            position: absolute;
+            top: 1px;
+            left: 10px;
+        }
+ 
+        .header-text {
+            margin-left: 20px;
+        }
+ 
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+ 
+        h2 {
+            font-size: 25px;
+            color: rgb(255, 255, 0);
+        }
+ 
+        nav {
+            clear: both;
+            text-align: center;
+        }
+ 
+        .button {
+            background-color: #010190;
+            color: #ffffff;
+            padding: 9px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+ 
+        .button:hover {
+            background-color: #2980b9;
+        }
+ 
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+ 
+        .form-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+ 
+        .login-form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background: #3d68e8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        .form-group {
+            margin-bottom: 20px;
+        }
+ 
+        .form-group label {
+            font-size: 18px;
+            color: yellow;
+        }
+        .g-recaptcha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+ 
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background: #3d68e8;
+            color: #fff;
+        }
+ 
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #010190;
+            color: #fff;
+            cursor: pointer;
+        }
+ 
+        footer {
+            background: linear-gradient(to bottom, #050bb8, #2942d4);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+ 
+        .footer-content {
+            position: absolute;
+            bottom: 5px;
+            left: 50px;
+        }
+ 
+        .small-logo {
+            width: 70px;
+        }
+ 
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            display: inline-block;
+        }
+ 
+        footer a:not(:last-child):after {
+            content: "|";
+            margin-left: 10px;
+        }
+        .error-message {
+        color: red;
+        margin-top: 5px;
+        }
+    </style>
+   
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+ 
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="form-container">
+ 
+            <form class="login-form" action="{{ url_for('login') }}" method="POST">
+                <div class="form-group">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="mail">Correo Electrónico:</label>
+                    <input type="email" id="mail" name="mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required>
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="{{ config['RECAPTCHA_PUBLIC_KEY'] }}"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ 
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}" class="link-light">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}">Productos</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+</body>
+</html>

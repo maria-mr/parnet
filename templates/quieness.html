@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        body {
+            font-size: 20px;
+            text-align: center;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        .header-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+    
+        h1, h2, p {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    
+        main {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            margin: 20px;
+        }
+    
+        h3 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    
+        .slider-container {
+            max-width: 800px; 
+            text-align: center; 
+            margin-top: 20px; 
+        }
+    
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="logo">
+            <div class="header-text">
+                <h1>PARNET INGENIERIA SA DE CV</h1>
+                <h2>Telecomunicaciones, Voz, Datos, Fibra Óptica</h2>
+                <div class="rectangle">
+                    <p>Bienvenido a PARNET Ingenieria SA de CV. Continuamente actualizamos el sitio. Revisa Nuestros estándares de calidad ISO 9000</p>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023c8c;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a href="{{ url_for('index') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Página Principal</a>
+                        <a href="{{ url_for('quieness') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Quiénes Somos</a>
+                        <a href="{{ url_for('clientes') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Clientes</a>
+                        <a href="{{ url_for('servicios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Servicios</a>
+                        <a href="{{ url_for('productos') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Productos</a>
+                        <a href="{{ url_for('sugerencias') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Sugerencias</a>
+                        <a href="{{ url_for('contacto') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Contacto</a>
+                        <a href="{{ url_for('socios') }}" class="btn btn-dark w-100 mb-2 border-right" style="background-color: #023c8c;" onclick="closeNavbar()">Socios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+
+    <main>
+        <div class="text-container">
+            <h3>Quiénes Somos</h3>
+            <p>En implementación y diseño de proyectos contamos con un equipo de profesionales especializados y certificados, que le brindan la asesoría necesaria para elegir el equipamiento más adecuado a sus necesidades; Asegurando continuidad y confiabilidad en la operación de su red; antes, durante y después de la instalación. También ofrecemos servicios de consultoría para estrategias y empleo de tecnologías para mejorar u optimizar los procesos de negocios. En la actualidad PARNET INGENIERIA está presente en las ciudades de Saltillo y Monclova, Coahuila. En estas unidades operativas hemos realizado trabajos sobre diseño e integración de soluciones corporativas de comunicación de voz, datos, fibra óptica, data center, video, CCTV y control de acceso. En el área eléctrica se han realizado proyectos de iluminación de naves industriales, sistemas de tierra física, contactos de corriente regulada, conexión de maquinaria y equipos de producción, redes eléctricas independientes reguladas para el área de sistemas a IDF´s, etc.</p>
+
+            <h3>Misión</h3>
+            <p>Nuestro enfoque empresarial está orientado al diseño e implementación de servicios con estricto apego a normas y estándares vigentes para garantizar el funcionamiento óptimo y eficaz en el desempeño de aplicaciones. Otorgando nuestra experiencia técnica para beneficiar a nuestros clientes por medio de tecnología de punta.</p>
+
+            <h3>Visión</h3>
+            <p>Nuestra empresa tiene como objetivo suministrar soluciones integrales en telecomunicaciones, CCTV, control de acceso, audio y corriente regulada. Que resuelvan las necesidades de nuestros clientes con productos, aplicaciones, servicios y tecnología de punta, la cual simplifique el trabajo al usuario final obteniendo una comunicación eficiente, de alta confiabilidad, incrementando los índices de productividad y competitividad de su empresa y del personal de la misma.</p>
+        </div>
+
+        <div class="slider-container">
+            <div class="slick-slider">
+                <div><img src="https://www.parnetmx.com/images/datacenter%20commscope.jpg" alt="Imagen 1"></div>
+                <div><img src="https://www.parnetmx.com/images/barrera%20vehicular.jpg" alt="Imagen 2"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="https://www.parnetmx.com/images/parnet%20logo.png" alt="Logo" class="small-logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}">Página Principal</a>
+            <a href="{{ url_for('quieness') }}">Quiénes Somos</a>
+            <a href="{{ url_for('clientes') }}">Clientes</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('productos') }}" class="button">Productos</a>
+            <a href="{{ url_for('sugerencias') }}">Sugerencias</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <a href="{{ url_for('socios') }}">Socios</a>
+        </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slick-slider').slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
+    </script>
+</body>
+</html>
